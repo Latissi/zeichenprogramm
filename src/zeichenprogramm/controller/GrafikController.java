@@ -7,6 +7,8 @@
 package zeichenprogramm.controller;
 
 import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -17,7 +19,8 @@ import zeichenprogramm.view.GrafikView;
  *
  * @author le
  */
-public class GrafikController implements MouseMotionListener, MouseListener
+public class GrafikController implements MouseMotionListener, MouseListener,
+        ActionListener
 {
   private GrafikView view;
   private GrafikModel model;
@@ -32,6 +35,8 @@ public class GrafikController implements MouseMotionListener, MouseListener
   {
     view.addMouseMotionListener(this);
     view.addMouseListener(this);
+    view.getMenuItemDrucken().addActionListener(this);
+    view.getMenuItemSpeichern().addActionListener(this);
   }
   
   @Override
@@ -41,6 +46,7 @@ public class GrafikController implements MouseMotionListener, MouseListener
     
     view.drawPoint(p);
     model.addPoint(p);
+    
   }
 
   @Override
@@ -67,6 +73,7 @@ public class GrafikController implements MouseMotionListener, MouseListener
     }
     model.addFigur();
     view.repaint();
+    
   }
 
   @Override
@@ -78,4 +85,9 @@ public class GrafikController implements MouseMotionListener, MouseListener
   public void mouseExited(MouseEvent e)
   {
   }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

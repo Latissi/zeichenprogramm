@@ -6,7 +6,12 @@
 
 package zeichenprogramm;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
 import javax.swing.WindowConstants;
 import zeichenprogramm.controller.GrafikController;
 import zeichenprogramm.model.GrafikModel;
@@ -20,7 +25,7 @@ public class Start
 {
   public Start()
   {
-    JFrame frm = new JFrame();
+    JFrame frm = new JFrame("Zeichenprogramm");
     frm.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     GrafikView view = new GrafikView();
     GrafikModel model = new GrafikModel();
